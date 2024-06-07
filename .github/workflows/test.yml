@@ -5,13 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Specify the Node.js version you need
+          node-version: '16'  # Specify the Node.js version you need
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install  # Run npm install to install dependencies
+
       - name: Run tests
-        run:  run test
-    
+        run: npm test  # Run your test script
